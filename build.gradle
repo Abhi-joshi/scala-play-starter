@@ -9,7 +9,7 @@ def scalaVersion = "2.12"
 model {
     components {
         play {
-            platform play: playVersion, scala: scalaVersion, java: '1.8'
+            platform play: playVersion, scala: scalaVersion, java: '1.9'
             injectedRoutesGenerator = true
 
             sources {
