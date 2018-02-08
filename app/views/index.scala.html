@@ -1,5 +1,25 @@
-@()
+@(customers: Seq[Customer])(implicit request: RequestHeader)
+@import helper._
 
-@main("Welcome to Play") {
-  <h1>Welcome to Scala Play Starter!</h1>
+@main("Customer Details") {
+<div>
+  <div id="customers">
+    <h2>Insert a Customer here:</h2>
+
+    <form action="/insert/customer" method="POST">
+       @CSRF.formField
+      <input name="firstname" type="text" placeholder="Enter first name"/>
+      <input name="lastname" type="text" placeholder="Enter last name"/>
+      <input type="submit"/>
+    </form>
+
+    <h2>Previously inserted customers:</h2>
+    <table>
+      <tr><th>Firstname</th><th>Lastname</th></tr>
+      @for(c <- customers){ 
+      <tr><td>@c.firstname</td><td>@c.lastname</td></tr>
+      }
+    </table>
+  </div>
+</div>
 }
