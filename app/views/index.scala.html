@@ -5,19 +5,26 @@
 <div>
   <div id="customers">
     <h2>Insert a Customer here:</h2>
+    
+		<form class="form-inline" action="/insert/customer" method="POST">
+			@CSRF.formField
+			<div class="form-group mb-2">
+				<label for="firstname" class="sr-only">Firstname</label>
+				<input type="text" name="firstname" class="form-control" id="firstname"  placeholder="Firstname">
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="lastname" class="sr-only">Lastname</label>
+				<input type="text" name="lastname" class="form-control" id="lastname" placeholder="Lastname">
+			</div>
+			<button type="submit" class="btn btn-primary mb-2">Insert</button>
+		</form>
 
-    <form action="/insert/customer" method="POST">
-       @CSRF.formField
-      <input name="firstname" type="text" placeholder="Enter first name"/>
-      <input name="lastname" type="text" placeholder="Enter last name"/>
-      <input type="submit"/>
-    </form>
-
-    <h2>Previously inserted customers:</h2>
-    <table>
-      <tr><th>Firstname</th><th>Lastname</th></tr>
+	<h2>Previously inserted customers:</h2>
+    <table class="table">
+      <caption>List of customers</caption>
+      <tr><th>Firstname</th><th>Lastname</th><th>Action</th></tr>
       @for(c <- customers){ 
-      <tr><td>@c.firstname</td><td>@c.lastname</td></tr>
+      <tr><td>@c.firstname</td><td>@c.lastname</td><td><div><button class="btn btn-info delete">Update</button><button class="btn btn-danger delete" data-url="@routes.HomeController.deleteCustomer(c.id)">Delete</button></div></td></tr>
       }
     </table>
   </div>

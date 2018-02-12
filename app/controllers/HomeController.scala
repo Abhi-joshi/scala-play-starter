@@ -35,4 +35,8 @@ class HomeController @Inject() (
     val customer = Customer(0, customerFormData.firstname, customerFormData.lastname)
     customerDAO.insert(customer).map(_ => Redirect(routes.HomeController.index))
   }
+  
+  def deleteCustomer(id: Long) = Action.async { implicit Customer =>
+    customerDAO.delete(id).map(_ => Redirect(routes.HomeController.index))
+  }
 }
