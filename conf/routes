@@ -4,13 +4,13 @@
 # ~~~~
 
 # Home page
-GET     /                                    controllers.HomeController.index
+GET     /                                                            controllers.HomeController.index
 
-# Home page
-POST    /insert/customer                     controllers.HomeController.insertCustomer
+POST    /insert/customer                                             controllers.HomeController.insertCustomer
 
-# Home page
-DELETE  /delete/customer/:id                 controllers.HomeController.deleteCustomer(id: Long)
+PUT     /update/customer/:id/:firstname/:lastname                    controllers.HomeController.updateCustomer(id: Long, firstname: String, lastname: String)
+
+DELETE  /delete/customer/:id                                         controllers.HomeController.deleteCustomer(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

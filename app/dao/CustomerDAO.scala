@@ -23,6 +23,11 @@ class CustomerDAO @Inject() (protected val dbConfigProvider: DatabaseConfigProvi
   
   def insert(customer: Customer): Future[Unit] = db.run(customers += customer).map { _ => () }
    
+  def update(customer: Customer): Future[Unit] = {
+    val q = for { c <- customers if c.id === customer.id } yield (c.firstName, c.lastName)
+    db.run(q.update(customer.firstname, customer.lastname)).map(_ => ())
+  }
+   
   def delete(id: Long): Future[Int] = db.run(customers.filter(_.id === id).delete)
 
   private class CustomerTable(tag: Tag) extends Table[Customer](tag, "customer") {
