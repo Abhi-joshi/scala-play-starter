@@ -20,11 +20,11 @@
 		</form>
 
 	<h2>Previously inserted customers:</h2>
-    <table class="table">
+    <table class="table table-striped table-bordered table-sm">
       <caption>List of customers</caption>
       <tr><th>Firstname</th><th>Lastname</th><th>Action</th></tr>
       @for(c <- customers){ 
-      <tr><td>@c.firstname</td><td>@c.lastname</td><td><div><button class="btn btn-info delete">Update</button><button class="btn btn-danger delete" data-url="@routes.HomeController.deleteCustomer(c.id)">Delete</button></div></td></tr>
+      <tr><td><div>@c.firstname</div><div class="hidden"><input type="text" value="@c.firstname"></div></td><td><div>@c.lastname</div><div class="hidden"><input type="text" value="@c.lastname"></div></td><td><div><button class="btn btn-info update">Update</button><button class="btn btn-info save hidden" data-id="@c.id">Save</button><button class="btn btn-danger delete" data-url="@routes.HomeController.deleteCustomer(c.id)">Delete</button></div></td></tr>
       }
     </table>
   </div>
