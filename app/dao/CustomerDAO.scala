@@ -37,6 +37,5 @@ class CustomerDAO @Inject() (protected val dbConfigProvider: DatabaseConfigProvi
     def lastName = column[String]("lastname")
 
    def * = (id, firstName, lastName) <> (Customer.tupled, Customer.unapply)
-   def ? = (id.?, firstName.?, lastName.?).shaped.<>({ r => import r._; _1.map(_ => Customer.tupled((_1.get, _2.get, _3.get))) }, (_: Any) => throw new Exception("Inserting into ? projection not supported."))
   }
 }
