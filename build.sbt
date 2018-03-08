@@ -10,7 +10,7 @@ scalaVersion := "2.12.4"
 libraryDependencies ++= Seq(
     "com.typesafe.play" %% "play-slick" % "3.0.1",
     "com.typesafe.play" %% "play-slick-evolutions" % "3.0.1",
-    "com.typesafe.play" %% "play-json" % "2.6.8",
+    "com.typesafe.play" %% "play-json" % "2.6.9",
     "com.h2database" % "h2" % "1.4.196",
     "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % "test",
     "org.postgresql" % "postgresql" % "42.2.1",
