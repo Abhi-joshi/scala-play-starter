@@ -18,8 +18,3 @@ libraryDependencies ++= Seq(
     guice
 )
 
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "com.abhishek.controllers._"
-
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "com.abhishek.binders._"
