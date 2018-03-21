@@ -17,7 +17,7 @@ class CustomerDAO @Inject() (protected val dbConfigProvider: DatabaseConfigProvi
    val db = dbConfig.db
    import dbConfig.profile.api._
 
-  private val customers = TableQuery[CustomerTable]
+  private val customers = new TableQuery(new CustomerTable(_))
    
   def all(): Future[Seq[Customer]] = db.run(customers.result)
   
