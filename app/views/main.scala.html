@@ -11,10 +11,15 @@
     <head>
         @* Here's where we render the page title `String`. *@
         <title>@title</title>
+        <meta charset="UTF-8">
+  		<meta name="description" content="Customer Portal">
+  		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  		<meta name="author" content="Abhishek Sharma">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<meta http-equiv="Content-Security-Policy" content="style-src 'self' http://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-
     </head>
     <body>
         @* And here's where we render the `Html` object containing

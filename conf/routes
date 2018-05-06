@@ -4,7 +4,11 @@
 # ~~~~
 
 # Home page
-GET     /                                                            controllers.HomeController.index
+GET     /                                                            controllers.LoginController.index
+
+GET     /registration                                                controllers.RegistrationController.index
+
+GET     /customers                                                   controllers.HomeController.index
 
 POST    /insert/customer                                             controllers.HomeController.insertCustomer
 
